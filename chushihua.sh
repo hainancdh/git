@@ -22,7 +22,9 @@ read -p "请输入功能编号("1"是关闭setenforce的功能
 "epel"是配置网络源 
 "4" 是配置固定IP.): " num
 [ -d /etc/yum.repos.d/repodir ] ||  mkdir /etc/yum.repos.d/repodir 
-[ -f /etc/yum.repos.d/Cen* ] && mv /etc/yum.repos.d/Cen* /etc/yum.repos.d/repodir 
+if ls /etc/yum.repos.d/Cen* ] then
+mv /etc/yum.repos.d/Cen* /etc/yum.repos.d/repodir 
+fi
 case "$num" in
 um)
 if  `df -h|grep "/mnt$" &>/dev/null` 
